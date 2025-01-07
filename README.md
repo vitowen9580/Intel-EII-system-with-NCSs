@@ -2,83 +2,66 @@
 
 ## Overview
 
-This guide will walk you through the process of setting up and running the NCS in the EII (Edge Insights for Industrial) system container.
+This guide will walk you through the process of setting up and running the **Intel Edge Insights for Industrial (EII)** system with the **Intel Neural Compute Sticks (NCS)** container.
 
 ---
 
-## Prerequisites
+## Setup and Execution
 
-- Ensure the `ai_toolwear_ncs/` folder is placed at the same path level as the `IEdgeInsights/` folder. For example:
+To set up and run the NCS container in the EII system, follow these steps:
 
-    ```bash
-    /home/edge_insights_industrial/Edge_Insights_for_Industrial_4.1.0/IEdgeInsights
-    ```
-
----
-
-## Build NCS in EII System Container
-
-1. Navigate to the `IEdgeInsights` directory:
+1. **Set up the container:**  
+   First, navigate to the `build` directory and run the setup scripts:
 
     ```bash
-    cd /home/edge_insights_industrial/Edge_Insights_for_Industrial_4.1.0/IEdgeInsights
-    ```
-
-2. Run the following commands to set up the container and build the procedure:
-
-    ```bash
+    cd /home/edge_insights_industrial/Edge_Insights_for_Industrial_4.1.0/IEdgeInsights/build
+    sh build_procedure.sh
     sh ../ai_toolwear_ncs/run_container.sh
-    sh ./build/build_procedure.sh
     ```
 
-3. You will now be inside the container at the following path:
+   After this, you will be inside the container. The OpenVINO environment should be initialized, and you should see the following:
 
     ```bash
+    [setupvars.sh] OpenVINO environment initialized
     root@ai_toolwear_ncs:/app
     ```
 
----
-
-## Run ToolWear Program
-
-1. **Check NCS Name**  
-   To verify the NCS device name, run the following command:
+2. **Verify the NCS device name:**  
+   To confirm the NCS device name, run the following Python script:
 
     ```bash
     python3 check_device.py
     ```
 
-2. **Inference**  
-   Navigate to the `code` directory and execute the inference script:
+3. **Run Inference:**  
+   To run the inference, navigate to the `code` directory and execute the script:
 
     ```bash
     cd code
     sh run.sh
     ```
 
----
+   If you want to change the device, modify the `-m $device` argument in the `run.sh` script accordingly.
 
-## Visualization Setup
-
-1. **Step 1: Access the Dashboard**  
-   Open a web browser and navigate to your IP address at port `3000`:
+4. **Access the Visualization Dashboard:**  
+   To visualize the results, open a web browser and go to your system’s IP address at port `3000`:
 
     ```bash
     http://$your_IP:3000
     ```
 
-2. **Step 2: Install the Plugin**  
-   Go to the **Plugins** section and install **Business Media**.
+5. **Install the Plugin:**  
+   In the dashboard, go to the **Plugins** section and install the **Business Media** plugin.
 
-3. **Step 3: Import the Dashboard**  
-   Import the following JSON dashboard:
+6. **Import the Dashboard:**  
+   Import the provided JSON dashboard:
 
     ```bash
     ./EII_Video_and_TimeSeries_Dashboard.json
     ```
 
-4. **Step 4: View Results**  
-   After importing the dashboard, you will see the results visualized in the dashboard. Example:
+7. **View the Results:**  
+   Once the dashboard is imported, the results will be visualized within it. For example, you will see a result similar to:
 
    ![Result GIF](dashboard.gif)
-   
+
