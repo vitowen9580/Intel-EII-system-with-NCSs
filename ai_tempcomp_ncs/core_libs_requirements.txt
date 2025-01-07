@@ -1,2 +1,0 @@
-eii-messagebus==4.0.0
-eii-configmanager==4.0.0
