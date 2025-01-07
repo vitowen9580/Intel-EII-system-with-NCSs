@@ -47,7 +47,7 @@ To set up and run the NCS container in the EII system, follow these steps:
    To visualize the results, open a web browser and go to your system’s IP address at port `3000`:
 
     ```bash
-    http://$your_IP:3000
+    https://$your_IP:3000
     ```
 
 5. **Install the Plugin:**  
