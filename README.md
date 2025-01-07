@@ -22,13 +22,12 @@ cd code
 sh run.sh 
 ````
 
-## Visilization with Grafana
-Type $your IP:3000
- ```bash
-python3 check_device.py
-````
 
-* Result
+## Visilization Setting 
+* step1: Type $your IP:3000
+* step2: Go to Plugins and install Business Media 
+* step3: Import ./EII Video and Time Series Dashboard.json 
+* step4: Result
 <img src="figs/operation.gif" width="550" height="300"/>
 
 
