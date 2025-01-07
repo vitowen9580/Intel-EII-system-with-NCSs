@@ -1,5 +1,3 @@
-# NCS in EII System Container Setup
-
 ## Overview
 
 This guide will walk you through the process of setting up and running the **Intel Edge Insights for Industrial (EII)** system with the **Intel Neural Compute Sticks (NCS)** container.
