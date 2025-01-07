@@ -1,0 +1,43 @@
+{
+    "config":{
+        "cert_type": ["zmq", "pem"],
+        "logging": {
+            "C_LOG_LEVEL": "INFO",
+            "PY_LOG_LEVEL": "INFO"
+        },
+        "ECB_SlotTitle":"TC_module",
+        "ECB_ChTitle_inference":["Ch1"],
+        "ECB_ChTitle_env_temp":"Ch2"
+    },
+    "interfaces":{
+        "Publishers": [
+            {
+                "Name": "test2",
+                "Type": "zmq_tcp",
+                "EndPoint": "0.0.0.0:55556",
+                "AllowedClients": [
+                    "*"
+                ],
+                "Topics": [
+                    "measurement_test2"
+                ]
+                
+            }
+
+        ],
+        "Clients": [
+            {
+                "EndPoint": "ia_datastore:88888",
+                "Name": "temp_data_reader",
+                "ServerAppName": "DataStore",
+                "Type": "zmq_tcp"
+            },
+            {
+                "EndPoint": "ia_datastore:88889",
+                "Name": "temp_data_reader_sim",
+                "ServerAppName": "DataStore",
+                "Type": "zmq_tcp"
+            }
+        ]
+    }
+}
